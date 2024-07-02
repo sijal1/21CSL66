@@ -1,3 +1,4 @@
+//Develop a program to demonstrate basic geometric operations on the 2D object
 #include <glut.h>
 #include<math.h>
 
