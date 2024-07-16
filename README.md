@@ -4,5 +4,6 @@ Download the GLUT library from OpenGL
 
 <br>For Python<br>
 pip install opencv-python<br>
-pip install numpy
+pip install numpy <br>
+if it doesnt work , try creating a virtualenv and install 
 
