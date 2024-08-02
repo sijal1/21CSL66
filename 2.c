@@ -1,4 +1,4 @@
-//Develop a program to demonstrate basic geometric operations on the 2D object
+
 #include <glut.h>
 #include<math.h>
 
@@ -8,7 +8,6 @@ float squareSize = 0.2f;
 float rotationAngleDegrees = 45.0f;
 float rotationAngleRadians = rotationAngleDegrees * (3.14/ 180.0f);
 
-// Function to draw a square
 void drawSquare(float x, float y, float size) {
     glBegin(GL_QUADS);
     glVertex2f(x, y);
@@ -18,33 +17,28 @@ void drawSquare(float x, float y, float size) {
     glEnd();
 }
 
-// Function to handle all rendering
 void renderScene() {
     glClear(GL_COLOR_BUFFER_BIT);
 
-    // Draw the original square
     glColor3f(1.0f, 0.0f, 0.0f);
     drawSquare(squareX, squareY, squareSize);
 
-    // Draw the translated square
+    
     glColor3f(0.0f, 1.0f, 0.0f);
     drawSquare(squareX + 0.5f, squareY, squareSize);
 
-    // Draw the scaled square
     glColor3f(0.0f, 0.0f, 1.0f);
     drawSquare(squareX, squareY + 0.5f, squareSize * 2);
 
-
-    // Calculate sine and cosine of the rotation angle
     float cosAngle = cos(rotationAngleRadians);
     float sinAngle = sin(rotationAngleRadians);
 
 
-    // Calculate center of the square
+    
     float centerX = squareX + squareSize / 2.0f;
     float centerY = squareY + squareSize / 2.0f;
 
-    // Apply rotation matrix to each vertex
+    
     float vertices[8] = {
         squareX, squareY,
         squareX + squareSize, squareY,
@@ -59,7 +53,7 @@ void renderScene() {
         vertices[i + 1] = x * sinAngle + y * cosAngle + centerY;
     }
 
-    // Draw the rotated square
+    
     glColor3f(1.0f, 1.0f, 0.0f);
     glBegin(GL_QUADS);
     for (int i = 0; i < 8; i += 2) {
@@ -70,7 +64,7 @@ void renderScene() {
     glutSwapBuffers();
 }
 
-// Function to handle window resizing
+
 void reshapeWindow(int w, int h) {
     glViewport(0, 0, w, h);
     glMatrixMode(GL_PROJECTION);
