@@ -1,4 +1,3 @@
-// 3. Develop a program to demonstrate basic geometric operations on the 3D object
 
 #include <glut.h>
 #include <math.h>
@@ -21,39 +20,39 @@ float scale[3] = { 1.3f, 1.0f, 1.0f };
 
 void drawCube() {
     glBegin(GL_QUADS);
-    // Front face
+    
     glColor3f(1.0f, 0.0f, 0.0f);
     glVertex3fv(vertices[0]);
     glVertex3fv(vertices[1]);
     glVertex3fv(vertices[2]);
     glVertex3fv(vertices[3]);
-    // Back face
+   
     glColor3f(0.0f, 1.0f, 0.0f);
     glVertex3fv(vertices[4]);
     glVertex3fv(vertices[5]);
     glVertex3fv(vertices[6]);
     glVertex3fv(vertices[7]);
-    // Top face
+    
     glColor3f(0.0f, 0.0f, 1.0f);
     glVertex3fv(vertices[3]);
     glVertex3fv(vertices[2]);
     glVertex3fv(vertices[6]);
     glVertex3fv(vertices[7]);
-    // Bottom face
+    
     glColor3f(1.0f, 1.0f, 0.0f);
     glVertex3fv(vertices[0]);
     glVertex3fv(vertices[1]);
     glVertex3fv(vertices[5]);
     glVertex3fv(vertices[4]);
 
-    // Right face
+    
     glColor3f(0.0f, 1.0f, 1.0f);
     glVertex3fv(vertices[1]);
     glVertex3fv(vertices[5]);
     glVertex3fv(vertices[6]);
     glVertex3fv(vertices[2]);
 
-    // Left face
+    
     glColor3f(1.0f, 0.0f, 1.0f);
     glVertex3fv(vertices[0]);
     glVertex3fv(vertices[4]);
@@ -65,14 +64,14 @@ void drawCube() {
 }
 
 void applyTransformations() {
-    // Translation
+    /
     for (int i = 0; i < 8; ++i) {
         vertices[i][0] += translation[0];
         vertices[i][1] += translation[1];
         vertices[i][2] += translation[2];
     }
 
-    // Rotation
+    
     float angleRadians = rotationAngleDegrees * (3.14 / 180.0f);
     float cosAngle = cos(angleRadians);
     float sinAngle = sin(angleRadians);
@@ -91,7 +90,7 @@ void applyTransformations() {
             z * (cosAngle + (1 - cosAngle) * rotationAxis[2] * rotationAxis[2]);
     }
 
-    // Scaling
+    
     for (int i = 0; i < 8; ++i) {
         vertices[i][0] *= scale[0];
         vertices[i][1] *= scale[1];
